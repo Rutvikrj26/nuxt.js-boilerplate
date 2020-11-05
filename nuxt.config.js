@@ -5,7 +5,6 @@ import postcssNesting from 'postcss-nesting'
 import postcssPresetEnv from 'postcss-preset-env'
 import * as SITE_INFO from './assets/content/site/info.json'
 import { COLOR_MODE_FALLBACK } from './utils/globals.js'
-import { modules, modulesSettings } from './config/modules'
 import plugins from './config/plugins'
 import css from './config/css'
 
@@ -73,7 +72,7 @@ export default {
   /*
    ** Nuxt.js modules
    */
-  modules: ['@nuxtjs/markdownit', 'nuxt-purgecss', modules, modulesSettings ],
+  modules: ['@nuxtjs/markdownit', 'nuxt-purgecss' ],
   markdownit: {
     injected: true
   },
