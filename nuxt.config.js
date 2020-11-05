@@ -5,6 +5,9 @@ import postcssNesting from 'postcss-nesting'
 import postcssPresetEnv from 'postcss-preset-env'
 import * as SITE_INFO from './assets/content/site/info.json'
 import { COLOR_MODE_FALLBACK } from './utils/globals.js'
+import { modules, modulesSettings } from './config/modules'
+import plugins from './config/plugins'
+import css from './config/css'
 
 const dynamicContentPath = 'assets/content' // ? No prepending/appending backslashes here
 const dynamicRoutes = getDynamicPaths(
@@ -58,11 +61,11 @@ export default {
   /*
    ** Global CSS
    */
-  css: ['@/assets/css/tailwind.css', '@/assets/css/main.pcss'],
+  css: ['@/assets/css/tailwind.css', '@/assets/css/main.pcss', css],
   /*
    ** Plugins to load before mounting the App
    */
-  plugins: [],
+  plugins: plugins,
   /*
    ** Nuxt.js dev-modules
    */
@@ -70,7 +73,7 @@ export default {
   /*
    ** Nuxt.js modules
    */
-  modules: ['@nuxtjs/markdownit', 'nuxt-purgecss'],
+  modules: ['@nuxtjs/markdownit', 'nuxt-purgecss', modules, modulesSettings ],
   markdownit: {
     injected: true
   },
